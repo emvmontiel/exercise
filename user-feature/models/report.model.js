@@ -17,9 +17,9 @@ const reportSchema = new Schema({
         location: {
             type: String
         },
-        pictures: {
+        pictures: [{
             type: String
-        }
+        }]
     }, { timestamps: true }
 )
 

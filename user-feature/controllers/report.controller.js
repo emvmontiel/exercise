@@ -9,12 +9,7 @@ const submit = (req, res, next) => {
     // pictures: req.body.pictures,
   });
   if(req.files) {
-    let path = ''
-    req.files.foreach(function(files, index, arr){
-      path = path + files.path + ', '
-    })
-     path = path.substring(0, path.lastIndexOf(', '))
-     report.pictures = path
+    report.pictures = req.files.map(file => file.path);
   }
   report.save()
     .then((response) => {
