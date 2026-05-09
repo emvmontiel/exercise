@@ -5,11 +5,18 @@ const submit = (req, res, next) => {
     userId: req.body.userId,
     subject: req.body.subject,
     details: req.body.details,
-    location: req.body.location,
-    pictures: req.body.pictures,
+    location: req.body.location
+    // pictures: req.body.pictures,
   });
-  report
-    .save()
+  if(req.files) {
+    let path = ''
+    req.files.foreach(function(files, index, arr){
+      path = path + files.path + ', '
+    })
+     path = path.substring(0, path.lastIndexOf(', '))
+     report.pictures = path
+  }
+  report.save()
     .then((response) => {
       res.json({
         message: "Report submitted!",

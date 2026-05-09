@@ -15,13 +15,19 @@ let upload = multer({
     storage: storage,
     fileFilter: function(req, file, cb) {
         if (
-            file.mimetype == "image/jpg" ||
             file.mimetype == "image/jpeg" ||
-            file.mimetype == "image/png"
+            file.mimetype == "image/png" ||
+            file.mimetype == "application/pdf"
         ) {
             cb(null, true)
         } else {
-            cb(new Error('Only .jpg, .jpeg, and .png files are allowed!'), false)
+            console.log('Only .jpg, .jpeg, .png, and .pdf  files are accepted.')
+            cb(null, false)
         }
-    }
+    },
+    // limits: {
+    //     fileSize: 1024 * 1024 * 2
+    // }
 })
+
+module.exports = upload

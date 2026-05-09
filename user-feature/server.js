@@ -20,6 +20,7 @@ const app = express();
  
 app.use(express.json());
 app.use(morgan("dev"));
+app.use('/pictures', express.static('pictures'));
 
 const PORT = process.env.PORT || 3000;
 
