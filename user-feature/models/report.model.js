@@ -5,6 +5,7 @@ const reportSchema = new Schema({
         userId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',
+            required: true,
             default: null
         },
         subject: {
@@ -18,7 +19,8 @@ const reportSchema = new Schema({
             type: String
         },
         pictures: [{
-            type: String
+            type: String,
+            required: false
         }]
     }, { timestamps: true }
 )
