@@ -21,8 +21,8 @@ let upload = multer({
         ) {
             cb(null, true)
         } else {
-            console.log('Only .jpg, .jpeg, .png, and .pdf  files are accepted.')
-            cb(null, false)
+            // console.log('Only .jpg, .jpeg, .png, and .pdf  files are accepted.')
+            cb(new Error("Only .jpg, .jpeg, .png, and .pdf  files are accepted."))
         }
     },
     // limits: {
