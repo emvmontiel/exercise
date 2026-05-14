@@ -5,21 +5,19 @@ const submit = (req, res, next) => {
     userId: req.body.userId,
     subject: req.body.subject,
     details: req.body.details,
-    location: req.body.location
-    // pictures: req.body.pictures,
+    location: req.body.location,
+    pictures: req.files.map(file => file.path)
   });
-  if(req.files) {
-    report.pictures = req.files.map(file => file.path);
-  }
+  console.log(req.files)
   report.save()
     .then((response) => {
       res.json({
-        message: "Report submitted!",
+        message: "Report submitted!"
       });
     })
     .catch((error) => {
-      res.json({
-        message: "An error occurred!",
+      res.status(400).json({
+        message: "An error occurred!"
       });
     });
 };
