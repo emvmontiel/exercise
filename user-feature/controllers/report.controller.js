@@ -6,18 +6,19 @@ const submit = (req, res, next) => {
     subject: req.body.subject,
     details: req.body.details,
     location: req.body.location,
-    pictures: req.files.map(file => file.path)
+    pictures: req.files.map((file) => file.path),
   });
-  console.log(req.files)
-  report.save()
+  console.log(req.files);
+  report
+    .save()
     .then((response) => {
       res.json({
-        message: "Report submitted!"
+        message: "Report submitted!",
       });
     })
     .catch((error) => {
       res.status(400).json({
-        message: "An error occurred!"
+        message: "An error occurred!",
       });
     });
 };
