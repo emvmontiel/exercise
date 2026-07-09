@@ -1,6 +1,7 @@
-const mongoose = require("mongoose");
+const mongoose  = require("mongoose");
+const Schema    = mongoose.Schema
 
-const roleAccessSchema = new mongoose.Schema({
+const roleAccessSchema = new Schema({
   idroles: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Role",
@@ -26,4 +27,5 @@ const roleAccessSchema = new mongoose.Schema({
   collection: "rolesaccess",
 });
 
-module.exports = mongoose.model("RoleAccess", roleAccessSchema);
+const RoleAccess = mongoose.model("RoleAccess", roleAccessSchema)
+module.exports = RoleAccess
