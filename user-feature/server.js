@@ -4,6 +4,7 @@ const morgan        = require("morgan");
 
 const userRoute     = require("./routes/user.route");
 const reportRoute   = require("./routes/report.route");
+const roleRoute     = require("./routes/role.route");
 
 mongoose.connect("mongodb://localhost:27017/userfeature");
 const db = mongoose.connection;
@@ -30,3 +31,4 @@ app.listen(PORT, () => {
 
 app.use("/api/user", userRoute);
 app.use("/api/report", reportRoute);
+app.use("/api/role", roleRoute);

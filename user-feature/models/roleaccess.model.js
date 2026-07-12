@@ -27,5 +27,7 @@ const roleAccessSchema = new Schema({
   collection: "rolesaccess",
 });
 
+roleAccessSchema.index({ idroles: 1, access: 1 }, { unique: true });
+
 const RoleAccess = mongoose.model("RoleAccess", roleAccessSchema)
 module.exports = RoleAccess

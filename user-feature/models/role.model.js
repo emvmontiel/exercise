@@ -9,6 +9,7 @@ const roleSchema = new Schema({
   },
   active: {
     type: String,
+    enum: ["Y", "N"],
     default: "Y",
   },
 });
