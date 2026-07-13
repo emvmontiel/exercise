@@ -1,0 +1,69 @@
+rolesaccess raw entries (retrieved from Compass)
+- parameter codes
+- verify
+- users
+- user profiles
+- verify device
+- account ref
+- audit logs
+- services
+- offices
+- manage transaction
+- parameter codes
+- track a request
+- receiving
+- verify
+- user profiles
+- approve
+- user profiles
+- verify device
+- account ref
+- audit logs
+- services
+- receiving
+- users
+- roles
+- verify device
+- track a request
+- approve
+- users
+- offices
+- manage transaction
+- parameter codes
+- document templates
+- track a request
+- receiving
+- track a request
+- receiving
+- track a request
+- receiving
+- verify
+- approve
+- users
+- user profiles
+- roles
+- verify device
+- account ref
+- audit logs
+- services
+- offices
+- manage transaction
+- parameter codes
+- document templates
+
+rolesaccess cleaned entries (retrieved from Compass)
+Parameter Codes
+Verify
+Users
+User Profiles
+Verify Device
+Account Ref
+Audit Logs
+Services
+Offices
+Manage Transaction
+Track a Request
+Receiving
+Approve
+Roles
+Document Templates

@@ -1,0 +1,38 @@
+Jul 10 2026
+ADD ROLES
+- Admin
+- Guest
+
+ADMIN SIDE - PROCESSES NEEDED FOR ADMIN
+- can read reports
+- can approve/push reports
+- can delete reports
+
+push - check submitted reports
+
+TO DO
+- how to test in postman
+
+Jul 12 2026
+
+topics to study from user-feature 
+- collections
+
+RESTful APIs
+HTTP Verbs
+
+GET → Read
+POST → Create
+PUT → Replace
+PATCH/UPDATE → Modify partially
+DELETE → Remove
+
+ISSUE #1
+on 'role.route.js' 
+on lines 9 and 27
+> which line must be retained?
+
+ISSUE #2
+on postman
+> test various functions
+

@@ -1,0 +1,11 @@
+must not accept scripts and videos
+must not get submitted
+must throw an error
+
+admin
+- can approve reports
+- can delete reports
+
+add roles
+- admin
+- guest

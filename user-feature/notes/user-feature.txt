@@ -1,0 +1,88 @@
+May 14, 2026
+
+must not accept scripts and videos
+must not get submitted
+must throw an error
+
+admin
+- can approve reports
+- can delete reports
+
+add roles
+- admin
+- guest
+
+figure out
+- how to test in postman
+
+May 7, 2026
+
+CLIENT SIDE
+
+user > submit report (create lang no update) 
+you can use update sa pag upload ng picture
+
+create user fields needed
+- full name
+- email
+- cell no.
+- address
+
+create report fields needed
+- subject
+- details
+- address (changed to location)
+- pictures
+
+PROCESSES NEEDED FOR USER
+- create/register user
+- create/submit report
+- update picture
+
+http://localhost:3000/api/user/register
+
+create report
+- connected to the user (using id)
+- when you create a report 
+- must only accept pdf and images
+
+___________________________________________
+
+set up Node.js + MongoDB
+
+CLIENT SIDE
+
+user > submit report (create lang no update)
+you can use update sa pag upload ng picture
+
+create user fields needed
+- full name
+- email
+- cell no.
+- address
+
+create report fields needed
+- subject
+- details
+- address
+- pictures
+
+ADMIN SIDE
+
+push or delete report
+push - check submitted reports
+
+PROCESSES NEEDED FOR USER
+- create/register user
+- create/submit report
+
+PROCESSES NEEDED FOR ADMIN
+- read, push, and delete reports
+___________________________________________
+
+Input fields must not accept scripts and videos. If is does, the application must not allow its submission and throw an error.
+The system must allow to addition/creation of roles ('System Administrator' and 'Guest')
+
+Admin
+- can approve reports
+- can delete reports

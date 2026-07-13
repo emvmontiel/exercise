@@ -1,0 +1,121 @@
+Model		Type		Ref
+
+role
+- name
+- active
+
+role access
+- idroles	ObjectId	role
+- access
+- add
+- edit
+- delete
+> collection
+
+role user
+- idroles	ObjectId	role
+- idusers	ObjectId	user
+
+user
+- password
+- fullname
+- position
+- accesslevel
+- office
+- login
+- ip
+- cellno
+- emailaddress
+- active
+- remarks
+- image
+- signature
+- address
+- psid
+- mlocation
+- otp
+- devices
+
+report
+- userId 	ObjectId	user
+
+___________________________________________
+
+User Model
+
+const userSchema = new mongoose.Schema({
+  password: {
+    type: String,
+    default: "",
+  },
+
+  fullname: {
+    type: String,
+    required: true,
+  },
+  position: {
+    type: String,
+    default: "",
+  },
+  accesslevel: {
+    type: Number,
+    default: "",
+  },
+  office: {
+    type: String,
+  },
+  login: {
+    type: Date,
+    required: true,
+    default: Date.now,
+  },
+  ip: {
+    type: String,
+    default: "",
+  },
+  cellno: {
+    type: String,
+    default: "",
+  },
+  emailaddress: {
+    type: String,
+    required: true,
+  },
+  active: {
+    type: String,
+    default: "Y",
+    required: true,
+  },
+  remarks: {
+    type: String,
+    default: "",
+  },
+  image: {
+    type: String,
+    default: "",
+  },
+  signature: {
+    type: String,
+    default: null,
+  },
+  address: {
+    type: String,
+    default: null,
+  },
+  psid: {
+    type: String,
+    default: null,
+  },
+  mlocation: {
+    type: String,
+    default: "N",
+  },
+  otp: {
+    type: OTPSchema,
+    default: null
+  },
+  devices: {
+    type: Array,
+    "default": []
+  }
+}
