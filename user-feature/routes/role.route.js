@@ -1,13 +1,12 @@
-const express   = require('express');
-const router    = express.Router();
-
+const express        = require('express');
+const router         = express.Router();
 const roleController = require('../controllers/role.controller');
 
 // Role management
-router.post('/', roleController.createRole);
-router.get('/', roleController.getRoles);
-router.get('/user/:userId/permissions', roleController.getUserPermissions);
-router.get('/:id', roleController.getRoleById);
+router.post('/', roleController.createRole); // create role
+router.get('/', roleController.getRoles); // read role
+router.get('/user/:userId/permissions', roleController.getUserPermissions); 
+router.get('/:id', roleController.getRoleById); 
 router.put('/:id', roleController.updateRole);
 router.delete('/:id', roleController.deleteRole);
 
