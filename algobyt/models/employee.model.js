@@ -20,5 +20,4 @@ const employeeSchema = new Schema({
 }, { timestamps: true }) // timestamps automatically manages `createdAt` and `updateAt` fields 
 
 const Employee = mongoose.model('Employee', employeeSchema)
-module.exports = Employe
-e
+module.exports = Employee

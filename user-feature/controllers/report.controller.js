@@ -13,14 +13,14 @@ const submit = (req, res, next) => {
     .save()
     .then((response) => {
       res.json({
-        message: "Report submitted!",
+        message: "Report submitted!"
       });
     })
     .catch((error) => {
       res.status(400).json({
-        message: "An error occurred!",
+        message: "An error occurred!"
       });
     });
-};
+  };
 
 module.exports = { submit };

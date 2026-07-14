@@ -14,7 +14,10 @@ const roleUserSchema = new Schema({
   },
 });
 
-roleUserSchema.index({ idroles: 1, idusers: 1 }, { unique: true });
+roleUserSchema.index(
+  { idroles: 1, idusers: 1 }, 
+  { unique: true }
+);
 
 const RoleUser = mongoose.model("RoleUser", roleUserSchema)
 module.exports = RoleUser
