@@ -17,6 +17,15 @@ Jul 12 2026
 
 topics to study from user-feature 
 - collections
+- Schema.index
+- async/await
+- try/catch
+- params
+
+make notes about the following
+- postman: form-data and raw
+- 
+
 
 RESTful APIs
 HTTP Verbs
