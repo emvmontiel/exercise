@@ -1,6 +1,9 @@
 const Role = require('../models/role.model');
 const RoleUser = require('../models/roleuser.model');
 const RoleAccess = require('../models/roleaccess.model');
+const Report = require('../models/report.model');
+const User = require('../models/user.model');
+const { buildRoleViewData } = require('./role-view.helper');
 
 const createRole = async (req, res) => {
   try {
@@ -171,6 +174,38 @@ const getUserPermissions = async (req, res) => {
   }
 };
 
+const getRoleView = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const assignments = await RoleUser.find({ idusers: userId }).populate('idroles', 'name active');
+    const reports = await Report.find({ userId });
+    const payload = buildRoleViewData({ user: { _id: userId }, assignments, reports });
+
+    res.json(payload);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to load role view', error: error.message });
+  }
+};
+
+const getRoleViewByEmail = async (req, res) => {
+  try {
+    const email = req.params.email.toLowerCase();
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const assignments = await RoleUser.find({ idusers: user._id }).populate('idroles', 'name active');
+    const reports = await Report.find({ userId: user._id });
+    const payload = buildRoleViewData({ user, assignments, reports });
+
+    res.json(payload);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to load role view by email', error: error.message });
+  }
+};
+
 module.exports = {
   createRole,
   getRoles,
@@ -186,4 +221,6 @@ module.exports = {
   updateRoleAccess,
   deleteRoleAccess,
   getUserPermissions,
+  getRoleView,
+  getRoleViewByEmail,
 };
