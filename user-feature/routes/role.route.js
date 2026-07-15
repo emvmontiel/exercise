@@ -3,12 +3,8 @@ const router         = express.Router();
 const roleController = require('../controllers/role.controller');
 
 // Role management
-router.post('/', roleController.createRole); // create role
-router.get('/', roleController.getRoles); // read role
-router.get('/user/:userId/permissions', roleController.getUserPermissions); 
-router.get('/:id', roleController.getRoleById); 
-router.put('/:id', roleController.updateRole);
-router.delete('/:id', roleController.deleteRole);
+router.post('/', roleController.createRole);
+router.get('/', roleController.getRoles);
 
 // Role assignment (user-role link)
 router.post('/assign', roleController.assignRoleToUser);
@@ -22,7 +18,12 @@ router.get('/access/:id', roleController.getRoleAccessById);
 router.put('/access/:id', roleController.updateRoleAccess);
 router.delete('/access/:id', roleController.deleteRoleAccess);
 
-// User effective permissions
+// User  permissions
 router.get('/user/:userId/permissions', roleController.getUserPermissions);
+
+// Role :id routes
+router.get('/:id', roleController.getRoleById); 
+router.put('/:id', roleController.updateRole);
+router.delete('/:id', roleController.deleteRole);
 
 module.exports = router;
