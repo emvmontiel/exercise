@@ -21,13 +21,9 @@ let upload = multer({
         ) {
             cb(null, true)
         } else {
-            // console.log('Only .jpg, .jpeg, .png, and .pdf  files are accepted.')
             cb(new Error("Only .jpg, .jpeg, .png, and .pdf  files are accepted."))
         }
-    },
-    // limits: {
-    //     fileSize: 1024 * 1024 * 2
-    // }
+    }
 })
 
 module.exports = upload
