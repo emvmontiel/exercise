@@ -19,6 +19,10 @@ const userSchema = new Schema({
         },
         address: {
             type: String
+        },
+        emailVerified: {
+            type: Boolean,
+            default: false
         }
     }, { timestamps: true }
 )
