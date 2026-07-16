@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { buildRoleViewData } = require('../controllers/role-view.helper');
+const { buildRoleViewData } = require('../controllers/role.helper');
 
 test('buildRoleViewData returns the full report list for a system administrator', () => {
   const user = { _id: '507f191e810c19729de860ea' };
