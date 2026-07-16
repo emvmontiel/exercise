@@ -1,29 +1,15 @@
 const User = require('../models/user.model');
 
-// const register = (req, res, next) => {
-//     let user = new User({
-//         fullname: req.body.fullname,
-//         email: req.body.email,
-//         cellno: req.body.cellno,
-//         address: req.body.address 
-//     })
-//     user.save()
-//     .then(response => {
-//         res.json({
-//             message: 'User created successfully!'
-//         })
-//     })
-//     .catch(error => {
-//         res.json({
-//             message: 'An error occurred!'
-//         })
-//     })
-// }
-
 const registerUser = async (req, res) => {
   try {
-    const { fullname, email, cellno, address } = req.body;
-    const user = new User({ fullname, email, cellno, address });
+    const { fullname, email, cellno, address, emailVerified } = req.body;
+    const user = new User({
+      fullname,
+      email,
+      cellno,
+      address,
+      emailVerified: typeof emailVerified === 'boolean' ? emailVerified : true,
+    });
     await user.save();
     res.status(201).json({ message: 'User created successfully', user });
   } catch (error) {
@@ -31,7 +17,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-const read = async (req, res) => {
+const getUsers = async (req, res) => {
   try {
     const users = await User.find();
     res.json({ users });
@@ -40,4 +26,38 @@ const read = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, read }
+const getUserById = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) return res.status(404).json({ message: "User not found" });
+    res.json({ user });
+  } catch (error) {
+    res
+      .status(400)
+      .json({ message: "Failed to load user", error: error.message });
+  }
+};
+
+const updateUser = async (req, res) => {
+  try {
+    const { fullname, email, cellno, address, emailVerified } = req.body;
+    const user = await User.findByIdAndUpdate(
+      req.params.id,
+      { fullname, email, cellno, address, emailVerified },
+      { new: true, runValidators: true},
+    );
+    if (!user) return res.status(404).json({ message: "User not found" });
+    res.json({ message: "User updated successfully", user });
+  } catch (error) {
+    res
+      .status(400)
+      .json({ message: "User update failed", error: error.message });
+  }
+};
+
+module.exports = { 
+  registerUser, 
+  getUsers,
+  getUserById,
+  updateUser
+}
