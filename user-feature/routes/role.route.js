@@ -20,7 +20,7 @@ router.delete("/access/:id", roleController.deleteRoleAccess);
 
 // User permissions
 router.get("/user/:userId/permissions", roleController.getUserPermissions);
-router.get("/user/:userId/view", roleController.getRoleView);
+
 router.get("/user/email/:email/view", roleController.getRoleViewByEmail);
 
 // Role :id routes
