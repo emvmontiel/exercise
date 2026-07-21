@@ -272,7 +272,7 @@ const getRoleViewByEmail = async (req, res) => {
       "idroles",
       "name active",
     );
-    const reports = await Report.find({ userId: user._id });
+    const reports = await Report.find();
     const payload = buildRoleViewData({ user, assignments, reports });
 
     res.json(payload);
